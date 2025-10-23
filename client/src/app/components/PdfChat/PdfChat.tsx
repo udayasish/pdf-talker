@@ -33,7 +33,7 @@ export function PdfChat() {
   const [isLoading, setIsLoading] = useState(false);
   const [chats, setChats] = useState([{ id: "1", title: "First Chat" }]);
   const [activeChat, setActiveChat] = useState("1");
-  const [threadId, setThreadid] = useState(uuidv4());
+  const [threadId] = useState(uuidv4());
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -65,7 +65,7 @@ export function PdfChat() {
 
     try {
       // Send message to backend with namespace if available
-      const response = await axios.post("http://localhost:8000/api/chat", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/chat`, {
         message: messageText,
         threadId,
         namespace: namespace,

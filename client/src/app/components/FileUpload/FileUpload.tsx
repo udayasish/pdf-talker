@@ -32,7 +32,7 @@ export function FileUploadDemo() {
 
       // Upload file to backend
       const uploadResponse = await axios.post(
-        "http://localhost:8000/api/upload",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/upload`,
         formData,
         {
           headers: {

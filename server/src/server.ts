@@ -25,3 +25,5 @@ console.log("port: ", port);
 app.listen(port, () => {
   console.log(`Example eapp listening on port ${port}`);
 });
+
+export default app;
